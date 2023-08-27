@@ -13,13 +13,11 @@ slides.forEach((element, i) => {
 for (let i = 0; i < massSlides.length - 1; i++) {
   paginateList.insertAdjacentHTML(
     "beforeend",
-    '<input type="radio" name="slider" class="radioBtn" />'
+    '<label class="radioBtn"><input type="radio" name="slider" /><span></span></label>'
   );
 }
 
 let radioMass = document.querySelectorAll(".radioBtn");
-
-console.log(massSlides);
 
 function Slide(i) {
   if (massSlides[i].style.right == "1px") {
@@ -28,29 +26,36 @@ function Slide(i) {
   }
   massSlides[i].style.right = massSlides[i].style.right + 1 + "px";
 }
-
+let flag = true;
 radioMass.forEach((element, i) => {
   element.addEventListener("click", () => {
     if (massSlides[i] == swiper.firstElementChild) {
       return;
     }
-    swiper
-      .insertAdjacentElement("beforeend", massSlides[i])
-      .classList.add("slide--active");
-    swiper.lastElementChild.style.right = null;
-    // запоминаем время старта
-    let start = Date.now();
-    let Timer = setInterval(() => {
-      // Проверяем, сколько времени осталось
-      let TimePassed = Date.now() - start;
-      if (TimePassed > 500) {
-        clearInterval(Timer);
-
-        swiper.firstElementChild.classList.remove("slide--active");
-        swiper.firstElementChild.remove();
-        return;
-      }
-      Slide(i);
-    }, 1);
+    if (flag) {
+      anim(i);
+    }
+    flag = false;
   });
 });
+function anim(i) {
+  swiper
+    .insertAdjacentElement("beforeend", massSlides[i])
+    .classList.add("slide--active");
+  swiper.lastElementChild.style.right = null;
+  // запоминаем время старта
+  let start = Date.now();
+  let Timer = setInterval(() => {
+    // Проверяем, сколько времени осталось
+    let TimePassed = Date.now() - start;
+    if (TimePassed > 500) {
+      clearInterval(Timer);
+
+      swiper.firstElementChild.classList.remove("slide--active");
+      swiper.firstElementChild.remove();
+      flag = true;
+      return;
+    }
+    Slide(i);
+  }, 1);
+}
