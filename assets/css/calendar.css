@@ -71,6 +71,7 @@ body {
   cursor: pointer;
 }
 
-#prev {
+#prev,
+#next {
   cursor: pointer;
 }
