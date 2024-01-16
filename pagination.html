@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pagination</title>
     <link rel="stylesheet" href="./assets/css/paginate.css" />
-    <script src="./assets/js/paginate.js"></script>
+    <script defer src="./assets/js/paginate.js"></script>
     <style>
       html,
       body {
@@ -16,8 +16,12 @@
       .post-List {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(auto, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 40px;
+      }
+      #next img,
+      #prev img {
+        width: 30px;
       }
     </style>
   </head>
@@ -27,6 +31,10 @@
         <h2>title</h2>
         <p class="text">text</p>
       </div>
+    </div>
+    <div class="pagination">
+      <button id="prev"><img src="./assets/images/left.svg" alt="" /></button>
+      <button id="next"><img src="./assets/images/right.svg" alt="" /></button>
     </div>
   </body>
 </html>
