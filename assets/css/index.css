@@ -3,12 +3,14 @@
   padding: 0;
   margin: 0;
 }
+
 html,
 body {
   width: 100%;
   height: 100%;
   /* overflow-x: hidden; */
 }
+
 .swiper {
   width: 100%;
   height: 500px;
@@ -16,31 +18,39 @@ body {
   position: relative;
   /* display: flex; */
 }
+
 .slide {
-  transition: 0.5s;
+  transition: 1.5s;
   width: 100%;
   min-width: 100%;
   height: 100%;
   position: absolute;
 }
+
 .slide1 {
   background-color: #b44141;
 }
+
 .slide2 {
   background-color: #499e50;
 }
+
 .slide3 {
   background-color: #5587c0;
 }
+
 .slide4 {
   background-color: #8041b4;
 }
+
 .slide5 {
   background-color: #6b9445;
 }
+
 .slide6 {
   background-color: #6258b8;
 }
+
 .swiper-pagination {
   display: flex;
   gap: 20px;
@@ -59,6 +69,7 @@ body {
   top: 0;
   left: 100vw;
 }
+
 .radioBtn {
   position: relative;
   width: 13px;
@@ -68,20 +79,24 @@ body {
   z-index: 2;
   transition: 0.2s;
 }
+
 .radioBtn:hover {
   background-color: #5587c0;
 }
-.radioBtn > input {
+
+.radioBtn>input {
   position: absolute;
   top: 0;
   opacity: 0;
   z-index: -1;
   cursor: pointer;
 }
+
 .radioBtn span {
   display: block;
 }
-.radioBtn input:checked + span {
+
+.radioBtn input:checked+span {
   display: block;
 
   width: 100%;

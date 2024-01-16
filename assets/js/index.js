@@ -24,7 +24,8 @@ function Slide(i) {
     massSlides[i].style.right = 0;
     return;
   }
-  massSlides[i].style.right = massSlides[i].style.right + 1 + "px";
+  console.log(massSlides[i].style.right);
+  massSlides[i].style.right = massSlides[i].style.right + 0 + "px";
 }
 let flag = true;
 radioMass.forEach((element, i) => {
